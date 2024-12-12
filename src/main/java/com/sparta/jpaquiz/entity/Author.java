@@ -1,5 +1,6 @@
 package com.sparta.jpaquiz.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Author {
      * 조건: 중간테이블 이름은 명시적으로 "book_author"로 설정
      * 조건: 책/저자의 외래키 이름은 명시적으로 각각 "book_id"/"author_id"로 설정
      */
-    @ManyToMany(...)
+    @ManyToMany(mappedBy = "authors", cascade = CascadeType.PERSIST)
     private List<Book> books = new ArrayList<>();
 
 }
